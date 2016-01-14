@@ -1,4 +1,4 @@
-class TasksController < ApplicationControlleruser
+class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy, :change]
 
@@ -8,7 +8,6 @@ class TasksController < ApplicationControlleruser
     @to_do = current_user.tasks.where(state: "to_do")
     @doing = current_user.tasks.where(state: "doing")
     @done = current_user.tasks.where(state: "done")
-    respond_with(@tasks)
   end
 
   
